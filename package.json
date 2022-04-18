@@ -9,7 +9,7 @@
     "build": "webpack --env production",
     "module": "webpack --env production --env module",
     "standalone": "webpack --env production --env module --env standalone",
-    "start": "webpack-dev-server --open"
+    "start": "webpack serve --open"
   },
   "keywords": [
     "webix",
@@ -24,7 +24,9 @@
     "@babel/preset-env": "^7.16.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.0",
-    "eslint": "^8.1.0",
+    "eslint": "^8.13.0",
+    "eslint-config-xbsoftware": "bitbucket:xbsltd/eslint#v4.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "file-loader": "^6.2.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
