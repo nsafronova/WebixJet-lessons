@@ -25,7 +25,6 @@
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.0",
     "eslint": "^8.13.0",
-    "eslint-config-xbsoftware": "bitbucket:xbsltd/eslint#v4.0.0",
     "eslint-plugin-import": "^2.26.0",
     "file-loader": "^6.2.0",
     "less": "^4.1.2",
@@ -37,6 +36,7 @@
     "webpack-dev-server": "^4.4.0"
   },
   "dependencies": {
+    "eslint-config-xbsoftware": "^5.0.0-alpha.2",
     "webix-jet": "^2.1.3"
   }
 }
