@@ -1,4 +1,5 @@
-import { JetView } from "webix-jet";
+import {JetView} from "webix-jet";
+
 import countriesTable from "./dataCountries/countriesTable";
 import statusesTable from "./dataCountries/statusesTable";
 
@@ -8,14 +9,14 @@ export default class DataView extends JetView {
 			view: "tabview",
 			cells: [
 				{
-					header: 'Countries',
+					header: "Countries",
 					body: countriesTable
 				},
 				{
-					header: 'Statuses',
+					header: "Statuses",
 					body: statusesTable
 				}
 			]
-		}
+		};
 	}
 }

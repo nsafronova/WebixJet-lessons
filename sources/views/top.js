@@ -1,4 +1,4 @@
-import { JetView, plugins } from "webix-jet";
+import {JetView, plugins} from "webix-jet";
 
 
 export default class TopView extends JetView {
@@ -16,9 +16,9 @@ export default class TopView extends JetView {
 			select: true,
 			template: "<span class='webix_icon #icon#'></span> #value# ",
 			data: [
-				{ value: "Contacts", id: "contacts", icon: "wxi-user" },
-				{ value: "Data", id: "data", icon: "wxi-folder" },
-				{ value: "Settings", id: "settings", icon: "wxi-pencil" }
+				{value: "Contacts", id: "contacts", icon: "wxi-user"},
+				{value: "Data", id: "data", icon: "wxi-folder"},
+				{value: "Settings", id: "settings", icon: "wxi-pencil"}
 			]
 		};
 
@@ -27,13 +27,13 @@ export default class TopView extends JetView {
 			paddingX: 5,
 			css: "app_layout",
 			cols: [
-				{ paddingX: 5, paddingY: 10, rows: [{ css: "webix_shadow_medium", rows: [header, menu] }] },
+				{paddingX: 5, paddingY: 10, rows: [{css: "webix_shadow_medium", rows: [header, menu]}]},
 				{
 					type: "wide",
 					paddingY: 10,
 					paddingX: 5,
 					rows: [
-						{ $subview: true }
+						{$subview: true}
 					]
 				}
 			]
