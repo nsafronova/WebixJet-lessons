@@ -4,27 +4,18 @@ import statusesTable from "./dataCountries/statusesTable";
 
 export default class DataView extends JetView {
 	config() {
-		const ui = {
-			view: "tabbar", id: 'tabbar',
-			multiview: true, options: [
-				{ value: 'Countries', id: 'countriesTable' },
-				{ value: 'Statuses', id: 'statusesTable' }
-			],
-			on: {
-				onChange: function (nextId, prevId) {
-					webix.animate($$(prevId).$view, { type: "fade", duration: 250 });
+		return {
+			view: "tabview",
+			cells: [
+				{
+					header: 'Countries',
+					body: countriesTable
+				},
+				{
+					header: 'Statuses',
+					body: statusesTable
 				}
-			},
-			animate: { type: "show", delay: 300 },
-			on: {
-				onViewChange: function (prevId, nextId) {
-					webix.html.addCss($$(nextId).$view, "animated fadeIn");
-					webix.delay(function () {
-						webix.html.removeCss(this.$view, "animated fadeIn");
-					}, $$(nextId), null, 500);
-				}
-			}
+			]
 		}
-		return ui
 	}
 }
