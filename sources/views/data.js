@@ -1,4 +1,4 @@
-import {JetView} from "webix-jet";
+import { JetView } from "webix-jet";
 
 import countriesTable from "./dataCountries/countriesTable";
 import statusesTable from "./dataCountries/statusesTable";
