@@ -8,7 +8,7 @@ export default class DataView extends JetView {
 			view: "tabbar", id: 'tabbar',
 			multiview: true, options: [
 				{ value: 'Countries', id: 'countriesTable' },
-				{ value: 'Statuses', statusesTable }
+				{ value: 'Statuses', id: 'statusesTable' }
 			],
 			on: {
 				onChange: function (nextId, prevId) {
