@@ -1,24 +1,25 @@
 import { statuses } from "models/statuses.js";
 import { JetView } from "webix-jet";
+import { ids } from "../helpers";
 
 export default class StatusesTable extends JetView {
    config() {
       return {
          rows: [
             {
-               view: 'text', name: 'input', id: 'inputStatuses', label: "Name"
+               view: 'text', name: 'input', id: ids.inputStatuses, label: "Name"
             },
             {
                view: "button", autowidth: false, value: "Add new", css: "webix_primary", click: function () {
-                  let values = $$('inputStatuses').getValue()
-                  $$('statuses').add({
+                  let values = $$(ids.inputStatuses).getValue()
+                  $$(ids.statuses).add({
                      'Name': values
                   })
                }
             },
             {
                view: "datatable",
-               id: 'statuses',
+               id: ids.statuses,
                css: "webix_shadow_medium",
                editable: true,
                columns: [
@@ -41,7 +42,7 @@ export default class StatusesTable extends JetView {
    }
 
    init(view) {
-      this.$$('statuses').parse(statuses);
+      this.$$(ids.statuses).parse(statuses);
    }
 }
 
