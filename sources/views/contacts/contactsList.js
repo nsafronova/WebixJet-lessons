@@ -5,6 +5,7 @@ export default class СontactsList extends JetView {
 	config() {
 		return {
 			view: "list",
+			select: true,
 			template: " <strong> Name: </strong> #Name# <strong> Email: </strong> #Email# <strong> Status: </strong> #Status# <strong> Country: </strong> #Country# ",
 			css: "webix_shadow_medium"
 		};

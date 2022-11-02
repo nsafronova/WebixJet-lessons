@@ -1,6 +1,6 @@
 import {JetView} from "webix-jet";
 
-import contactsList from "./contacts/contactsList.js";
+import ContactsList from "./contacts/contactsList.js";
 import Form from "./contacts/form.js";
 
 
@@ -11,10 +11,15 @@ export default class Contacts extends JetView {
 			paddingX: 5,
 			css: "app_layout",
 			cols: [
-				contactsList,
+				ContactsList,
 				Form
+
 			]
 		};
 		return ui;
+	}
+
+	init() {
+
 	}
 }

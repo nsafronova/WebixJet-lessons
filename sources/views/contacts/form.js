@@ -5,7 +5,6 @@ export default class Form extends JetView {
 		return {
 			view: "form",
 			width: 400,
-			autoheight: false,
 			elements: [
 				{view: "text", name: "Name", label: "Name"},
 				{view: "text", name: "Email", label: "Email"},
@@ -15,7 +14,8 @@ export default class Form extends JetView {
 				{
 					view: "button",
 					label: "Clear"
-				}
+				},
+				{}
 			]
 		};
 	}

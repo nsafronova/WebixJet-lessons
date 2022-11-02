@@ -12,18 +12,13 @@ export default class DataView extends JetView {
 			cells: [
 				{
 					header: "Countries",
-					rows: [
-						{body: new DataTable(this.app, countries)}
-					]
+					body: new DataTable(this.app, countries)
 
 
 				},
 				{
 					header: "Statuses",
-					rows: [
-						{body: new DataTable(this.app, statuses)}
-					]
-
+					body: new DataTable(this.app, statuses)
 
 				}
 

@@ -17,9 +17,9 @@ export default class DataTable extends JetView {
 					autowidth: false,
 					value: "Add new",
 					css: "webix_primary",
-					click() {
-						let values = this.$scope.$$("inputData").getValue();
-						this.$scope.$$("mydata").add({
+					click: () => {
+						let values = this.$$("inputData").getValue();
+						this.$$("mydata").add({
 							Name: values
 						});
 					}
@@ -49,6 +49,6 @@ export default class DataTable extends JetView {
 	}
 
 	init(view) {
-		view.queryView("datatable").parse(this._gridData);
+		this.$$("mydata").parse(this._gridData);
 	}
 }
