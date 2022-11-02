@@ -1,4 +1,4 @@
-import { JetView } from "webix-jet";
+import {JetView} from "webix-jet";
 
 import contactsList from "./contacts/contactsList.js";
 import Form from "./contacts/form.js";

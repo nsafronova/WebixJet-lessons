@@ -1,5 +1,5 @@
-import { contacts } from "models/contacts.js";
-import { JetView } from "webix-jet";
+import {contacts} from "models/contacts.js";
+import {JetView} from "webix-jet";
 
 export default class СontactsList extends JetView {
 	config() {

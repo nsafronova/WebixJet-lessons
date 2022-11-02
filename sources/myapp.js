@@ -8,7 +8,7 @@ export default class MyApp extends JetApp {
 			id: APPNAME,
 			version: VERSION,
 			router: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
-			debug: !PRODUCTION,
+			debug: true,
 			start: "/top/contacts"
 		};
 
@@ -16,6 +16,13 @@ export default class MyApp extends JetApp {
 	}
 }
 
+const app = new MyApp();
+
+app.attachEvent("app:error:resolve", (err) => {
+	console.log(err);
+	webix.delay(() => app.show("/top"));
+});
+
 if (!BUILD_AS_MODULE) {
-	webix.ready(() => new MyApp().render());
+	webix.ready(() => app.render());
 }
