@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import {JetApp, EmptyRouter, HashRouter} from "webix-jet";
+import { JetApp, EmptyRouter, HashRouter, plugins } from "webix-jet";
 import "./styles/app.css";
 
 export default class MyApp extends JetApp {
@@ -9,10 +9,10 @@ export default class MyApp extends JetApp {
 			version: VERSION,
 			router: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
 			debug: true,
-			start: "/top/contacts"
+			start: "/top/contacts/"
 		};
 
-		super({...defaults, ...config});
+		super({ ...defaults, ...config });
 	}
 }
 
@@ -23,6 +23,9 @@ app.attachEvent("app:error:resolve", (err) => {
 	webix.delay(() => app.show("/top"));
 });
 
+app.use(plugins.Locale);
+
 if (!BUILD_AS_MODULE) {
 	webix.ready(() => app.render());
 }
+

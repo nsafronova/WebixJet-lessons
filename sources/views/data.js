@@ -1,23 +1,24 @@
-import {countries} from "models/countries";
-import {statuses} from "models/statuses";
-import {JetView} from "webix-jet";
+import { countries } from "models/countries";
+import { statuses } from "models/statuses";
+import { JetView } from "webix-jet";
 
 import DataTable from "./dataCountries/DataTable";
 
 
 export default class DataView extends JetView {
 	config() {
+		const _ = this.app.getService("locale")._;
 		return {
 			view: "tabview",
 			cells: [
 				{
-					header: "Countries",
+					header: _("Countries"),
 					body: new DataTable(this.app, countries)
 
 
 				},
 				{
-					header: "Statuses",
+					header: _("Statuses"),
 					body: new DataTable(this.app, statuses)
 
 				}
