@@ -14,7 +14,7 @@ export default class СontactsList extends JetView {
 			onClick: {
 				removeBtn: function (e, id) {
 					console.log(contacts);
-					contacts.remove(id);
+					this.remove(id);
 					return false;
 				}
 			}
