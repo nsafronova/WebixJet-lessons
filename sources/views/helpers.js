@@ -6,4 +6,4 @@ const ids = {
 	// inputData: 'text'
 };
 
-export { ids };
+export {ids};

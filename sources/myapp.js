@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { JetApp, EmptyRouter, HashRouter, plugins } from "webix-jet";
+import {JetApp, EmptyRouter, HashRouter, plugins} from "webix-jet";
 import "./styles/app.css";
 
 export default class MyApp extends JetApp {
@@ -12,7 +12,7 @@ export default class MyApp extends JetApp {
 			start: "/top/contacts/"
 		};
 
-		super({ ...defaults, ...config });
+		super({...defaults, ...config});
 	}
 }
 
