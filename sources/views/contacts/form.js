@@ -1,7 +1,8 @@
-import {contacts} from "models/contacts.js";
-import {countries} from "models/countries.js";
-import {statuses} from "models/statuses.js";
 import {JetView} from "webix-jet";
+
+import contacts from "../../models/contacts";
+import countries from "../../models/countries";
+import statuses from "../../models/statuses";
 
 export default class Form extends JetView {
 	config() {
@@ -19,7 +20,8 @@ export default class Form extends JetView {
 					label: _("Status"),
 					options: {
 						filter(item, value) {
-							if (item.name.toString().toLowerCase().indexOf(value.toLowerCase()) === 0) return true;
+							if
+							(item.name.toString().toLowerCase().indexOf(value.toLowerCase()) === 0) return true;
 							return false;
 						},
 						body: {
@@ -34,7 +36,8 @@ export default class Form extends JetView {
 					label: _("Country"),
 					options: {
 						filter(item, value) {
-							if (item.name.toString().toLowerCase().indexOf(value.toLowerCase()) === 0) return true;
+							if
+							(item.name.toString().toLowerCase().indexOf(value.toLowerCase()) === 0) return true;
 							return false;
 						},
 						body: {

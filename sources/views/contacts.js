@@ -1,7 +1,7 @@
 import {JetView} from "webix-jet";
 
-import ContactsList from "./contacts/contactsList.js";
-import Form from "./contacts/form.js";
+import ContactsList from "./contacts/contactsList";
+import Form from "./contacts/form";
 
 
 export default class Contacts extends JetView {

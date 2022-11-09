@@ -1,14 +1,13 @@
-import {statuses} from "models/statuses.js";
 import {JetView} from "webix-jet";
 
-import {ids} from "../helpers";
+import statuses from "../../models/statuses";
 
 export default class StatusesTable extends JetView {
 	config() {
 		return {
 			rows: [
 				{
-					view: "text", name: "input", id: ids.inputStatuses, label: "Name"
+					view: "text", name: "input", localId: "inputStatuses", label: "Name"
 				},
 				{
 					view: "button",
@@ -16,15 +15,15 @@ export default class StatusesTable extends JetView {
 					value: "Add new",
 					css: "webix_primary",
 					click() {
-						let values = $$(ids.inputStatuses).getValue();
-						$$(ids.statuses).add({
+						let values = this.$$("inputStatuses").getValue();
+						this.$$("statuses").add({
 							Name: values
 						});
 					}
 				},
 				{
 					view: "datatable",
-					id: ids.statuses,
+					localId: "statuses",
 					css: "webix_shadow_medium",
 					editable: true,
 					columns: [
@@ -46,8 +45,8 @@ export default class StatusesTable extends JetView {
 		};
 	}
 
-	init(view) {
-		this.$$(ids.statuses).parse(statuses);
+	init() {
+		this.$$("statuses").parse(statuses);
 	}
 }
 

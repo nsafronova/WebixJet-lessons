@@ -49,7 +49,7 @@ export default class DataTable extends JetView {
 		};
 	}
 
-	init(view) {
+	init() {
 		this.$$("mydata").parse(this._gridData);
 	}
 }

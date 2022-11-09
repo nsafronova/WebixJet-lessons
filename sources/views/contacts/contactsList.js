@@ -1,5 +1,6 @@
-import {contacts} from "models/contacts.js";
 import {JetView} from "webix-jet";
+
+import contacts from "../../models/contacts";
 
 export default class СontactsList extends JetView {
 	config() {
@@ -30,15 +31,15 @@ export default class СontactsList extends JetView {
 			this.app.callEvent("pushToForm", [contacts[--id]]);
 		});
 
-		this.on(this.app, "onDataEditStop", (contacts) => {
-			if (contacts) {
-				if (contacts.id) this.list.updateItem(contacts.id, contacts);
-				else this.list.add(contacts);
+		this.on(this.app, "onDataEditStop", (contactsData) => {
+			if (contactsData) {
+				if (contactsData.id) this.list.updateItem(contactsData.id, contactsData);
+				else this.list.add(contactsData);
 			}
 		});
 	}
 
-	urlChange(view, url) {
+	urlChange() {
 		let id = this.getParam("id");
 
 		if (id) {

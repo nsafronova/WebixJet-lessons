@@ -18,8 +18,7 @@ export default class MyApp extends JetApp {
 
 const app = new MyApp();
 
-app.attachEvent("app:error:resolve", (err) => {
-	console.log(err);
+app.attachEvent("app:error:resolve", () => {
 	webix.delay(() => app.show("/top"));
 });
 

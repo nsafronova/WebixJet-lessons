@@ -1,7 +1,7 @@
-import {countries} from "models/countries";
-import {statuses} from "models/statuses";
 import {JetView} from "webix-jet";
 
+import countries from "../models/countries";
+import statuses from "../models/statuses";
 import DataTable from "./dataCountries/DataTable";
 
 
