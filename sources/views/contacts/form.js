@@ -70,7 +70,15 @@ export default class Form extends JetView {
 	}
 
 	urlChange() {
-		const id = this.getParam("id");
+		this.SetFormValues();
+	}
+
+	ready() {
+		this.SetFormValues();
+	}
+
+	SetFormValues() {
+		const id = this.getParam("id", true);
 		if (id) {
 			this.form.setValues(contacts.getItem(id));
 		}

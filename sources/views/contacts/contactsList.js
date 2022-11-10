@@ -25,11 +25,9 @@ export default class СontactsList extends JetView {
 		this.list.parse(contacts);
 
 		this.on(this.list, "onAfterSelect", (id) => {
-			this.show(`../contacts?id=${id}`);
+			this.app.callEvent("contacts:selected", [id]);
 		});
-	}
 
-	ready() {
 		this.on(this.app, "onDataEditStop", (contactsData) => {
 			if (contactsData) {
 				if (contactsData.id) contacts.updateItem(contactsData.id, contactsData);
@@ -38,10 +36,9 @@ export default class СontactsList extends JetView {
 		});
 	}
 
-	urlChange() {
+	ready() {
 		let id = this.getParam("id");
 		let firstItem = contacts.getFirstId();
-
 		if (id) {
 			this.list.select(id);
 		}

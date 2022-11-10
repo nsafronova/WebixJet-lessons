@@ -17,4 +17,10 @@ export default class Contacts extends JetView {
 		};
 		return ui;
 	}
+
+	init() {
+		this.on(this.app, "contacts:selected", (id) => {
+			this.setParam("id", id, true);
+		});
+	}
 }
