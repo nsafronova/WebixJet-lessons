@@ -7,19 +7,20 @@ export default class DataTable extends JetView {
 	}
 
 	config() {
+		const _ = this.app.getService("locale")._;
 		return {
 			rows: [
 				{
-					view: "text", name: "input", label: "Name", localId: "inputData"
+					view: "text", name: "input", label: _("Name"), localId: "inputData"
 				},
 				{
 					view: "button",
 					autowidth: false,
-					value: "Add new",
+					value: _("Add new"),
 					css: "webix_primary",
 					click: () => {
 						let values = this.$$("inputData").getValue();
-						this.$$("mydata").add({
+						this._gridData.add({
 							Name: values
 						});
 					}
@@ -30,16 +31,16 @@ export default class DataTable extends JetView {
 					css: "webix_shadow_medium",
 					editable: true,
 					columns: [
-						{id: "id", header: "Id"},
-						{id: "Name", header: "Name", editor: "text", fillspace: true},
+						{id: "id", header: "#"},
+						{id: "Name", header: _("Name"), editor: "text", fillspace: true},
 						{id: "Icon", header: "", template: "<span class='webix_icon wxi-#Icon#'></span>"},
 						{
 							id: "delete", header: "", css: "pointer", template: "{common.trashIcon()}", width: 50
 						}
 					],
 					onClick: {
-						"wxi-trash": function (e, id) {
-							this.remove(id);
+						"wxi-trash": (e, id) => {
+							this._gridData.remove(id);
 							return false;
 						}
 					}
@@ -48,7 +49,7 @@ export default class DataTable extends JetView {
 		};
 	}
 
-	init(view) {
+	init() {
 		this.$$("mydata").parse(this._gridData);
 	}
 }
