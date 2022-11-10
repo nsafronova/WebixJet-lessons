@@ -33,7 +33,6 @@ export default class Contacts extends JetView {
 	init() {
 		this.list = this.$$("mylist");
 		this.list.parse(contacts);
-
 		this.on(this.list, "onAfterSelect", (id) => {
 			this.setParam("id", id, true);
 		});
@@ -41,14 +40,16 @@ export default class Contacts extends JetView {
 
 
 	urlChange() {
-		let id = this.getParam("id");
-		let firstItem = contacts.getFirstId();
+		contacts.waitData.then(function () {
+			let id = this.getParam("id");
+			let firstItem = contacts.getFirstId();
+			if (id) {
+				this.list.select(id);
+			}
+			else if (firstItem) {
+				this.list.select(firstItem);
+			}
+		})
 
-		if (id) {
-			this.list.select(id);
-		}
-		else if (firstItem) {
-			this.list.select(firstItem);
-		}
 	}
 }

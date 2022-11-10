@@ -1,4 +1,4 @@
-import {JetView} from "webix-jet";
+import { JetView } from "webix-jet";
 
 export default class DataTable extends JetView {
 	constructor(app, data) {
@@ -31,9 +31,9 @@ export default class DataTable extends JetView {
 					css: "webix_shadow_medium",
 					editable: true,
 					columns: [
-						{id: "id", header: "#"},
-						{id: "Name", header: _("Name"), editor: "text", fillspace: true},
-						{id: "Icon", header: "", template: "<span class='webix_icon wxi-#Icon#'></span>"},
+						{ id: "id", header: "#" },
+						{ id: "Name", header: _("Name"), editor: "text", fillspace: true },
+						{ id: "Icon", header: "", template: "<span class='webix_icon wxi-#Icon#'></span>" },
 						{
 							id: "delete", header: "", css: "pointer", template: "{common.trashIcon()}", width: 50
 						}
@@ -50,6 +50,9 @@ export default class DataTable extends JetView {
 	}
 
 	init() {
-		this.$$("mydata").parse(this._gridData);
+		this._gridData.waitData.then(() => {
+			this.$$("mydata").parse(this._gridData);
+		})
+
 	}
 }
