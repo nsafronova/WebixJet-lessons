@@ -7,7 +7,6 @@ import Form from "./contacts/form";
 export default class Contacts extends JetView {
 	config() {
 		const ui = {
-			localId: "mylist",
 			type: "clean",
 			paddingX: 5,
 			css: "app_layout",
@@ -17,9 +16,5 @@ export default class Contacts extends JetView {
 			]
 		};
 		return ui;
-	}
-
-	init() {
-
 	}
 }

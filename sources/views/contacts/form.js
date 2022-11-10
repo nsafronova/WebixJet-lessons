@@ -21,11 +21,11 @@ export default class Form extends JetView {
 					options: {
 						filter(item, value) {
 							if
-							(item.name.toString().toLowerCase().indexOf(value.toLowerCase()) === 0) return true;
+							(item.Name.toString().toLowerCase().indexOf(value.toLowerCase()) !== -1) return true;
 							return false;
 						},
 						body: {
-							template: "<span class='webix_icon wxi-#Icon#'></span> #Name# ",
+							template: "#Name#",
 							data: statuses
 						}
 					}
@@ -37,11 +37,11 @@ export default class Form extends JetView {
 					options: {
 						filter(item, value) {
 							if
-							(item.name.toString().toLowerCase().indexOf(value.toLowerCase()) === 0) return true;
+							(item.Name.toString().toLowerCase().indexOf(value.toLowerCase()) !== -1) return true;
 							return false;
 						},
 						body: {
-							template: "#Name# ",
+							template: "#Name#",
 							data: countries
 						}
 					}
@@ -67,24 +67,12 @@ export default class Form extends JetView {
 
 	init() {
 		this.form = this.$$("myform");
-
-		this.on(this.app, "pushToForm", (value) => {
-			if (value) {
-				let selectedObj = {
-					Name: value.Name,
-					Email: value.Email,
-					Status: value.Status,
-					Country: value.Country
-				};
-				this.form.setValues(selectedObj);
-			}
-		});
 	}
 
-	urlChange(view, url) {
+	urlChange() {
 		const id = this.getParam("id");
-		if (url.length > 0) {
-			view.parse(contacts.getItem(id));
+		if (id) {
+			this.form.setValues(contacts.getItem(id));
 		}
 	}
 }

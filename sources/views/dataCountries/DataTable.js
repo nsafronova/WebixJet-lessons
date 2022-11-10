@@ -20,7 +20,7 @@ export default class DataTable extends JetView {
 					css: "webix_primary",
 					click: () => {
 						let values = this.$$("inputData").getValue();
-						this.$$("mydata").add({
+						this._gridData.add({
 							Name: values
 						});
 					}
@@ -39,8 +39,8 @@ export default class DataTable extends JetView {
 						}
 					],
 					onClick: {
-						"wxi-trash": function (e, id) {
-							this.remove(id);
+						"wxi-trash": (e, id) => {
+							this._gridData.remove(id);
 							return false;
 						}
 					}
