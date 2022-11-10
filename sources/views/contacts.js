@@ -1,6 +1,7 @@
-import { JetView } from "webix-jet";
-import Form from "./contacts/form";
+import {JetView} from "webix-jet";
+
 import contacts from "../models/contacts";
+import Form from "./contacts/form";
 
 
 export default class Contacts extends JetView {
@@ -28,12 +29,13 @@ export default class Contacts extends JetView {
 		};
 		return ui;
 	}
+
 	init() {
 		this.list = this.$$("mylist");
 		this.list.parse(contacts);
 
 		this.on(this.list, "onAfterSelect", (id) => {
-			this.show(`../contacts?id=${id}`);
+			this.setParam("id", id, true);
 		});
 	}
 
