@@ -39,14 +39,6 @@ export default class Contacts extends JetView {
 		});
 	}
 
-	// ready() {
-	// 	this.on(this.app, "onDataEditStop", (contactsData) => {
-	// 		if (contactsData) {
-	// 			if (contactsData.id) contacts.updateItem(contactsData.id, contactsData);
-	// 			else contacts.add(contactsData);
-	// 		}
-	// 	});
-	// }
 
 	urlChange() {
 		let id = this.getParam("id");
