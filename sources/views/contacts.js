@@ -32,10 +32,11 @@ export default class Contacts extends JetView {
 
 	init() {
 		this.list = this.$$("mylist");
-		this.list.parse(contacts);
+		this.list.sync(contacts);
 		this.on(this.list, "onAfterSelect", (id) => {
 			this.setParam("id", id, true);
 		});
+
 	}
 
 

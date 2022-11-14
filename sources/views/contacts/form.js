@@ -73,11 +73,15 @@ export default class Form extends JetView {
 	}
 
 	ready() {
-		this.setFormValues();
+		contacts.waitData.then(() => {
+			this.setFormValues();
+		})
 	}
 
 	urlChange() {
-		this.setFormValues();
+		contacts.waitData.then(() => {
+			this.setFormValues();
+		})
 	}
 
 	setFormValues() {
