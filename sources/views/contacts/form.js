@@ -60,7 +60,10 @@ export default class Form extends JetView {
 				},
 				{
 					view: "button",
-					label: _("Clear")
+					label: _("Clear"),
+					click: () => {
+						this.form.clear()
+					}
 				},
 				{}
 			]
@@ -81,9 +84,11 @@ export default class Form extends JetView {
 	}
 
 	setFormValues() {
-		const id = this.getParam("id");
-		if (id) {
-			this.form.setValues(contacts.getItem(id));
-		}
+		contacts.waitData.then(() => {
+			const id = this.getParam("id");
+			if (id) {
+				this.form.setValues(contacts.getItem(id));
+			}
+		})
 	}
 }

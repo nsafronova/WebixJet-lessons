@@ -50,6 +50,8 @@ export default class DataTable extends JetView {
 	}
 
 	init() {
-		this.$$("mydata").parse(this._gridData);
+		this._gridData.waitData.then(() => {
+			this.$$("mydata").parse(this._gridData);
+		});
 	}
 }
