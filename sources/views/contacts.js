@@ -1,4 +1,4 @@
-import { JetView } from "webix-jet";
+import {JetView} from "webix-jet";
 
 import contacts from "../models/contacts";
 import Form from "./contacts/form";
@@ -36,7 +36,6 @@ export default class Contacts extends JetView {
 		this.on(this.list, "onAfterSelect", (id) => {
 			this.setParam("id", id, true);
 		});
-
 	}
 
 
@@ -50,7 +49,6 @@ export default class Contacts extends JetView {
 			else if (firstItem) {
 				this.list.select(firstItem);
 			}
-		})
-
+		});
 	}
 }
