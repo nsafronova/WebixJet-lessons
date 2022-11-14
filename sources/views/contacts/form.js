@@ -1,4 +1,4 @@
-import {JetView} from "webix-jet";
+import { JetView } from "webix-jet";
 
 import contacts from "../../models/contacts";
 import countries from "../../models/countries";
@@ -12,8 +12,8 @@ export default class Form extends JetView {
 			localId: "myform",
 			width: 400,
 			elements: [
-				{view: "text", name: "Name", label: _("Name")},
-				{view: "text", name: "Email", label: _("Email")},
+				{ view: "text", name: "Name", label: _("Name") },
+				{ view: "text", name: "Email", label: _("Email") },
 				{
 					view: "combo",
 					name: "Status",
@@ -21,7 +21,7 @@ export default class Form extends JetView {
 					options: {
 						filter(item, value) {
 							if
-							(item.Name.toString().toLowerCase().indexOf(value.toLowerCase()) !== -1) return true;
+								(item.Name.toString().toLowerCase().indexOf(value.toLowerCase()) !== -1) return true;
 							return false;
 						},
 						body: {
@@ -37,7 +37,7 @@ export default class Form extends JetView {
 					options: {
 						filter(item, value) {
 							if
-							(item.Name.toString().toLowerCase().indexOf(value.toLowerCase()) !== -1) return true;
+								(item.Name.toString().toLowerCase().indexOf(value.toLowerCase()) !== -1) return true;
 							return false;
 						},
 						body: {
@@ -60,7 +60,10 @@ export default class Form extends JetView {
 				},
 				{
 					view: "button",
-					label: _("Clear")
+					label: _("Clear"),
+					click: () => {
+						this.form.clear()
+					}
 				},
 				{}
 			]
@@ -73,21 +76,19 @@ export default class Form extends JetView {
 	}
 
 	ready() {
-		contacts.waitData.then(() => {
-			this.setFormValues();
-		});
+		this.setFormValues();
 	}
 
 	urlChange() {
-		contacts.waitData.then(() => {
-			this.setFormValues();
-		});
+		this.setFormValues();
 	}
 
 	setFormValues() {
-		const id = this.getParam("id");
-		if (id) {
-			this.form.setValues(contacts.getItem(id));
-		}
+		contacts.waitData.then(() => {
+			const id = this.getParam("id");
+			if (id) {
+				this.form.setValues(contacts.getItem(id));
+			}
+		})
 	}
 }

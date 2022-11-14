@@ -1,4 +1,4 @@
-import {JetView} from "webix-jet";
+import { JetView } from "webix-jet";
 
 import contacts from "../models/contacts";
 import Form from "./contacts/form";
@@ -40,7 +40,7 @@ export default class Contacts extends JetView {
 
 
 	urlChange() {
-		contacts.waitData.then(function () {
+		contacts.waitData.then(() => {
 			let id = this.getParam("id");
 			let firstItem = contacts.getFirstId();
 			if (id) {
