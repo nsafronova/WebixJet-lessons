@@ -61,9 +61,12 @@ export default class Form extends JetView {
 				{
 					view: "button",
 					label: _("Clear"),
-					click: () => {
+					click: (() => {
+						const values = this.getRoot().getValues();
+						this.app.callEvent('clearForm', [values])
 						this.form.clear()
 					}
+					)
 				},
 				{}
 			]
@@ -88,6 +91,8 @@ export default class Form extends JetView {
 			const id = this.getParam("id");
 			if (id) {
 				this.form.setValues(contacts.getItem(id));
+			} else {
+				this.form.clear()
 			}
 		})
 	}

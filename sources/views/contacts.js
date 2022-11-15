@@ -29,6 +29,12 @@ export default class Contacts extends JetView {
 		};
 		return ui;
 	}
+	ready() {
+		this.on(this.app, 'clearForm', () => {
+			this.setParam("id", "", true);
+			this.list.unselectAll()
+		})
+	}
 
 	init() {
 		this.list = this.$$("mylist");
@@ -36,10 +42,6 @@ export default class Contacts extends JetView {
 		this.on(this.list, "onAfterSelect", (id) => {
 			this.setParam("id", id, true);
 		});
-	}
-
-
-	urlChange() {
 		contacts.waitData.then(() => {
 			let id = this.getParam("id");
 			let firstItem = contacts.getFirstId();
@@ -51,4 +53,10 @@ export default class Contacts extends JetView {
 			}
 		});
 	}
+
+
+	urlChange() {
+
+	}
+
 }
